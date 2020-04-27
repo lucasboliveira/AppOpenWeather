@@ -1,6 +1,9 @@
 # AppOpenWeather
 Xamarin Forms 
 
+<img src="https://github.com/lucasboliveira/AppOpenWeather/blob/master/src/app1.PNG"><img src="https://github.com/lucasboliveira/AppOpenWeather/blob/master/src/app3.PNG">
+<img src="https://github.com/lucasboliveira/AppOpenWeather/blob/master/src/app2.PNG">
+
 ## Arquitetura
 O padrão MVVM visa como principal objetivo estabelecer uma clara separação de responsabilidades das camadas de interação com o usuário das camadas de regras de negócio.
 
@@ -25,12 +28,12 @@ O padrão MVVM visa como principal objetivo estabelecer uma clara separação de
 Realiza o parsing do JSON "citiy.list.json" e da API "api.openweathermap.org".
 
 - **Nome do pacote: SQLite-net-PCL**
-Autor: Frank A. Krueger
-Id: sqlite-net-pcl
-Versão: 1.6.292
-Url: nuget.org/packages/sqlite-net-pcl
+- Autor: Frank A. Krueger
+- Id: sqlite-net-pcl
+- Versão: 1.6.292
+- Url: nuget.org/packages/sqlite-net-pcl
 
-- É um ORM básico que permite que você armazene e recupere com facilidade objetos no banco de dados SQLite local em um dispositivo. 
+É um ORM básico que permite que você armazene e recupere com facilidade objetos no banco de dados SQLite local em um dispositivo. 
 
 ## Melhorias
 
