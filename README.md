@@ -34,5 +34,5 @@ Url: nuget.org/packages/sqlite-net-pcl
 
 ## Melhorias
 
--Não foi testando no iOS por não possuir um ambiente.
--Criar projeto de teste unitário.
+- Não foi testando no iOS por não possuir um ambiente.
+- Criar projeto de teste unitário.
