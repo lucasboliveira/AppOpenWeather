@@ -55,6 +55,12 @@
                 Grid.Row="1"
                 ItemsSource="{Binding ClimateList}"
                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            
+            IsPullToRefreshEnabled="True"
+           RefreshCommand="{Binding RefreshCommand}"
+           IsRefreshing="{Binding IsRefreshing}" 
+            
+            
                 Style="{StaticResource GnlList}">
             <ListView.ItemTemplate>
                 <DataTemplate>

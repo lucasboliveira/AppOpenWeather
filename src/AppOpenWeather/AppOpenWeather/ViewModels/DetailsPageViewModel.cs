@@ -2,6 +2,7 @@
 using AppOpenWeather.Services;
 using AppOpenWeather.Views;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -33,6 +34,7 @@ namespace AppOpenWeather.ViewModels
             SaveCommand = new Command(() => SaveDeleteFavorite());
 
             _favoriteRepository = new FavoriteRepository();
+            ClimateList = new List<List>();
             _selectedID = cityID;
             _list = new List();
 
@@ -54,7 +56,7 @@ namespace AppOpenWeather.ViewModels
                 var clima = JsonConvert.DeserializeObject<Climate>(result);
 
                 _list = clima.List.FirstOrDefault();
-                _list.Weather[0].Description = _list.Weather[0].Description.ToUpper();
+                _list.Weather[0].Description = _list.Weather[0].Description.ToUpper();                
             }
 
         }
@@ -79,6 +81,7 @@ namespace AppOpenWeather.ViewModels
                     {
                         App.Current.MainPage.Navigation.RemovePage(item);
                         App.Current.MainPage.Navigation.InsertPageBefore(new FavoritesPage(), App.Current.MainPage.Navigation.NavigationStack.ToList()[0]);
+                        ClimateList.Add(_list);
                         break;
                     }
                 }
@@ -88,11 +91,13 @@ namespace AppOpenWeather.ViewModels
             {
                 _favoriteRepository.DeleteFavorite(favoriteItem);
                 Favorite = false;
-
+                ClimateList.Remove(_list);
 
             }
 
-            
+ 
+
+
         }
 
     }

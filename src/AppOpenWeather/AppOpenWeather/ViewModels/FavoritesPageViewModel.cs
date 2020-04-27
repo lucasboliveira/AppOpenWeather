@@ -28,11 +28,38 @@ namespace AppOpenWeather.ViewModels
         public void GetFavorites()
         {
             var favorites = _favoriteRepository.GetAllFavorite().Result;
-
+            
             if (favorites.Any())
                 GetDetailsCitys(favorites);
+            else
+            {
+                ClimateList = new List<List>();
+            }
         }
 
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                NotifyPropertyChanged(nameof(IsRefreshing));
+            }
+        }
+
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    IsRefreshing = true;
+                    GetFavorites();
+                    IsRefreshing = false;
+                });
+            }
+        }
         private void GetDetailsCitys(List<Favorite> favorites)
         {
             var citysID = String.Join(",", favorites.Select(p => p.CityID));

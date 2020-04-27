@@ -86,6 +86,7 @@ namespace AppOpenWeather.ViewModels
             }
         }
 
+
         List<List> _climateList;
         public List<List> ClimateList
         {
