@@ -9,7 +9,7 @@ O padrão MVVM visa como principal objetivo estabelecer uma clara separação de
 
 - View - Tem a responsabilidade de definir a aparência ou estrutura que o usuário vê na tela utilizando a linguagem XAML.
 
-- Model – Encapsula a lógica de negócios e os dados. O Modelo nada mais é do que o Modelo de domínio de uma aplicação.
+- Model - Encapsula a lógica de negócios e os dados. O Modelo nada mais é do que o Modelo de domínio de uma aplicação.
 
 - ViewModel - Tem a resposonsavilidade de disponibilizar para a View uma lógica de apresentação implementando propriedades e comandos. 
 
@@ -39,3 +39,5 @@ Realiza o parsing do JSON "citiy.list.json" e da API "api.openweathermap.org".
 
 - Não foi testando no iOS por não possuir um ambiente.
 - Criar projeto de teste unitário.
+- Criar Services separado o acesso as API.
+- Centralizar em um appsettings.json todas variaveis de ambiente como: nome banco de dados URL da API.
