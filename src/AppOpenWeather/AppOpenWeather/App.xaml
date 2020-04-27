@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppOpenWeather.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="ThinFont">
+                <On Platform="Android" Value="Roboto-Thin.ttf#Roboto" />
+                <On Platform="UWP" Value="/Assets/Roboto-Thin.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Thin" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="Roboto-Light.ttf#Roboto" />
+                <On Platform="UWP" Value="/Assets/Roboto-Light.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Light" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
+                <On Platform="Android" Value="Roboto-Regular.ttf#Roboto" />
+                <On Platform="UWP" Value="/Assets/Roboto-Regular.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="MediumFont">
+                <On Platform="Android" Value="Roboto-Medium.ttf#Roboto" />
+                <On Platform="UWP" Value="/Assets/Roboto-Medium.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Medium" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Roboto-Bold.ttf#Roboto" />
+                <On Platform="UWP" Value="/Assets/Roboto-Bold.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Bold" />
+            </OnPlatform>
+            <Color x:Key="DarkBG">#97BCC0</Color>
+            <Color x:Key="LightBG">#AEC3C5</Color>
+            <Style x:Key="GnlBtnHover" BaseResourceKey="GnlBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#66FFFFFF" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="Label" x:Key="PageTitle">
+            <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
+            <Setter Property="FontSize" Value="32" />
+        </Style>
+        <Style TargetType="Label" x:Key="PageSubTitle">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+        <Style TargetType="Image" x:Key="BgCity">
+            <Setter Property="Aspect" Value="AspectFill" />
+            <Setter Property="Source" Value="citybg.png" />
+        </Style>
+        <Style TargetType="ListView" x:Key="GnlList">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="HasUnevenRows" Value="True" />
+            <Setter Property="SeparatorColor" Value="#B1CDD0" />
+            <Setter Property="SeparatorVisibility" Value="Default" />
+        </Style>
+    </Application.Resources>
+</Application>

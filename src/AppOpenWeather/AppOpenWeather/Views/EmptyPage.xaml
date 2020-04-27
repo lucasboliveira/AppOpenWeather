@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppOpenWeather.Views.EmptyPage">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="AddBtn">
+            <Setter Property="Grid.Row" Value="2" />
+            <Setter Property="Margin" Value="0,30" />
+            <Setter Property="WidthRequest" Value="200" />
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="BorderColor" Value="Transparent" />
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="BackgroundColor" Value="#59FFFFFF" />
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="Label" x:Key="LblNotFound">
+            <Setter Property="Grid.Row" Value="1" />
+            <Setter Property="FontFamily" Value="{StaticResource ThinFont}" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource DarkBG}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="2" Style="{StaticResource BgCity}"></Image>
+            <Label
+                Text="Não há cidades&#10;favoritas ainda"
+                Style="{StaticResource LblNotFound}" />
+            <Button
+                Text="ADICIONAR"
+                Style="{StaticResource AddBtn}"
+                Command="{Binding CitysCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppOpenWeather.Views.FavoritesPage">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="IconSearch">
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Margin" Value="10, 60, 60, 0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WidthRequest" Value="60" />
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+        <Style TargetType="Label" x:Key="LblListCity">
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style TargetType="Label" x:Key="LblListTemp">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+
+    </ContentPage.ToolbarItems>
+    <Grid BackgroundColor="{StaticResource DarkBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Margin="-300,0" Style="{StaticResource BgCity}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Padding="60">
+                <Label Text="Clima" Style="{StaticResource PageTitle}" />
+                <Label Text="{Binding DateNow}" Style="{StaticResource PageSubTitle}" />
+            </StackLayout>
+            <Button 
+                    ImageSource="iconsearch.png" 
+                    Command="{Binding SearchCommand}"
+                    Style="{StaticResource IconSearch}" />
+        </Grid>
+        <ListView 
+                Grid.Row="1"
+                ItemsSource="{Binding ClimateList}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                Style="{StaticResource GnlList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="30,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Weather[0].Icon, StringFormat='https://openweathermap.org/img/wn/{0}.png'}" />
+                            <Label 
+                                    Text="{Binding Name}"
+                                    Style="{StaticResource LblListCity}" />
+                            <Label 
+                                    Text="{Binding Main.Temp, StringFormat='{0:F0}°'}"
+                                    Style="{StaticResource LblListTemp}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+    
+</ContentPage>
